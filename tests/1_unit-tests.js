@@ -36,15 +36,16 @@ suite('Unit Tests', function () {
       assert.equal(12, '12', 'Numbers are coerced into strings with =='); //equal
       assert.notEqual({ value: 1 }, { value: 1 }, '== compares object references'); // not equal
       assert.equal(6 * '2', '12'); //equal
-      assert.notEqual(6 + '2', '12'); //not equaldone
+      assert.notEqual(6 + '2', '12'); //not equal
       
     });
     // #6
     test('#strictEqual, #notStrictEqual', function () {
-      assert.fail(6, '6');
-      assert.fail(6, 3 * 2);
-      assert.fail(6 * '2', 12);
-      assert.fail([1, 'a', {}], [1, 'a', {}]);
+      assert.notStrictEqual(6, '6'); //not strict equal
+      assert.strictEqual(6, 3 * 2); // strict equal
+      assert.strictEqual(6 * '2', 12); // strict equal why?
+      assert.notStrictEqual([1, 'a', {}], [1, 'a', {}]); // not strict equal why?
+
     });
     // #7
     test('#deepEqual, #notDeepEqual', function () {
